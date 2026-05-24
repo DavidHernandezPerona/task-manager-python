@@ -51,6 +51,24 @@ while True:
                     print("Número de tarea no válida")
             else:
                 print("Entrada no válida")
+    elif opcion == "4":
+        if len(tareas) == 0:
+            print("No hay tareas en la lista")
+        else:
+            contador = 1
+            for tarea in tareas:
+                print(contador, tarea.get("descripcion"))
+                contador +=1
+            tarea_eliminar = input("Elige la tarea que desea eliminar: ")
+            if tarea_eliminar.isdigit():
+                tarea_eliminar_index = int(tarea_eliminar) -1
+                if 0 <= tarea_eliminar_index < len(tareas):
+                    tarea_eliminada = tareas.pop(tarea_eliminar_index)
+                    print("Tarea eliminada:", tarea_eliminada.get("descripcion"))
+                else:
+                    print("Número de tarea no válida")
+            else:
+                print("Entrada no válida")
     else:
             print("Opción no válida")
     print()
