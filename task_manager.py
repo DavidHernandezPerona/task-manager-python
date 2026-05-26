@@ -1,4 +1,31 @@
-tareas = []
+
+
+def guardar_tareas(tareas):
+    with open("tareas.txt", "w", encoding="utf-8") as archivo:
+        for tarea in tareas:
+            linea = tarea.get("descripcion") + "|" + str(tarea.get("completada"))
+            archivo.write(linea + "\n")
+def cargar_tareas():
+    tareas = []
+
+    try:
+        with open("tareas.txt", "r", encoding="utf-8") as archivo:
+            for linea in archivo:
+                linea = linea.strip()
+                partes = linea.split("|")
+
+                tarea = {
+                    "descripcion": partes[0],
+                    "completada": partes[1] == "True"
+                }
+
+                tareas.append(tarea)
+
+    except FileNotFoundError:
+        pass
+
+    return tareas
+tareas = cargar_tareas()
 
 while True:
     print(""" ==== GESTOR DE TAREAS ====
@@ -10,6 +37,8 @@ while True:
  """)
     opcion = input("Elige una opción:")
     if opcion == "5":
+        guardar_tareas(tareas)
+        print("Tareas guardadas correctamente.")
         break
     
     elif opcion == "1":
