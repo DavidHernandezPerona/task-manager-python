@@ -92,13 +92,29 @@ def eliminar_tarea(tareas):
             print("Entrada no válida")
 
 
+def buscar_tarea(tareas):
+    busqueda = input("Introduce la tarea que desea buscar: ")
+    encontrada = False
+
+    for tarea in tareas:
+        descripcion = tarea.get("descripcion")
+
+        if busqueda.lower() in descripcion.lower():
+            print(tarea.get("descripcion"))
+            encontrada = True
+
+    if not encontrada:
+        print("No se han encontrado tareas")
+
+
 def mostrar_menu():
     print(""" ==== GESTOR DE TAREAS ====
 1. Añadir tarea
 2. Ver tareas
 3. Marcar tarea como completada
 4. Eliminar tarea
-5. Salir
+5. Buscar tarea
+6. Salir
  """)
 
 
@@ -123,6 +139,9 @@ while True:
         eliminar_tarea(tareas)
 
     elif opcion == "5":
+        buscar_tarea(tareas)
+
+    elif opcion == "6":
         guardar_tareas(tareas)
         print("Tareas guardadas correctamente.")
         break
