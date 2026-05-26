@@ -100,11 +100,27 @@ def buscar_tarea(tareas):
         descripcion = tarea.get("descripcion")
 
         if busqueda.lower() in descripcion.lower():
-            print(tarea.get("descripcion"))
+
+            if tarea.get("completada") == False:
+                print(tarea.get("descripcion"), "[Pendiente]")
+            else:
+                print(tarea.get("descripcion"), "[Completada]")
+
             encontrada = True
 
     if not encontrada:
         print("No se han encontrado tareas")
+
+def mostrar_tareas_pendientes(tareas):
+    encontrada = False
+
+    for tarea in tareas:
+        if tarea.get("completada") == False:
+            print(tarea.get("descripcion"), "[Pendiente]")
+            encontrada = True
+
+    if not encontrada:
+        print("No hay tareas pendientes")
 
 
 def mostrar_menu():
@@ -114,7 +130,8 @@ def mostrar_menu():
 3. Marcar tarea como completada
 4. Eliminar tarea
 5. Buscar tarea
-6. Salir
+6. Mostrar tareas pendientes          
+0. Salir
  """)
 
 
@@ -142,6 +159,9 @@ while True:
         buscar_tarea(tareas)
 
     elif opcion == "6":
+        mostrar_tareas_pendientes(tareas)
+
+    elif opcion == "0":
         guardar_tareas(tareas)
         print("Tareas guardadas correctamente.")
         break

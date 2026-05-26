@@ -1,3 +1,5 @@
 Leer|False
 Andar|True
 Nadar|False
+Comprar pan|False
+Comprar leche|False
