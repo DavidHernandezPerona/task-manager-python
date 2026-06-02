@@ -136,6 +136,33 @@ def mostrar_tareas_completadas(tareas):
         print("No hay tareas completadas")
 
 
+def editar_tarea(tareas):
+    if len(tareas) == 0:
+        print("No hay tareas en la lista")
+        return
+
+    mostrar_tareas(tareas)
+
+    tarea_editar = input("Elige la tarea que deseas editar: ")
+
+    if tarea_editar.isdigit():
+
+        tarea_index = int(tarea_editar) - 1
+
+        if 0 <= tarea_index < len(tareas):
+
+            nueva_descripcion = input("Introduce la nueva descripción: ")
+            tareas[tarea_index]["descripcion"] = nueva_descripcion
+
+            print("Tarea editada correctamente")
+
+        else:
+            print("Número de tarea no válido")
+
+    else:
+        print("Entrada no válida")
+
+
 def mostrar_menu():
     print(""" ==== GESTOR DE TAREAS ====
 1. Añadir tarea
@@ -144,7 +171,8 @@ def mostrar_menu():
 4. Eliminar tarea
 5. Buscar tarea
 6. Mostrar tareas pendientes
-7. Mostrar tareas completadas          
+7. Mostrar tareas completadas 
+8. Editar tarea         
 0. Salir
  """)
 
@@ -177,6 +205,9 @@ while True:
 
     elif opcion == "7":
         mostrar_tareas_completadas(tareas)
+
+    elif opcion == "8":
+        editar_tarea(tareas)
 
     elif opcion == "0":
         guardar_tareas(tareas)

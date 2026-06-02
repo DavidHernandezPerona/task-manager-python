@@ -3,3 +3,5 @@ Andar|True
 Nadar|False
 Comprar pan|False
 Comprar leche|False
+Hacer la cama|False
+Tomar magnesio|True
