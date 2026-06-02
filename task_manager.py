@@ -163,6 +163,7 @@ def editar_tarea(tareas):
         print("Entrada no válida")
 
 
+# Elimina todas las tareas tras pedir confirmación al usuario
 def borrar_todas_tareas(tareas):
     if len(tareas) == 0:
         print("No hay tareas para borrar")
@@ -178,7 +179,6 @@ def borrar_todas_tareas(tareas):
             print("Operación cancelada")
 
 
-
 def mostrar_menu():
     print(""" ==== GESTOR DE TAREAS ====
 1. Añadir tarea
@@ -187,9 +187,9 @@ def mostrar_menu():
 4. Eliminar tarea
 5. Buscar tarea
 6. Mostrar tareas pendientes
-7. Mostrar tareas completadas 
+7. Mostrar tareas completadas
 8. Editar tarea
-9. Borrar todas las tareas        
+9. Borrar todas las tareas
 0. Salir
  """)
 
@@ -225,7 +225,7 @@ while True:
 
     elif opcion == "8":
         editar_tarea(tareas)
-    
+
     elif opcion == "9":
         borrar_todas_tareas(tareas)
 
@@ -237,4 +237,4 @@ while True:
     else:
         print("Opción no válida")
 
-    print()
+    print() 
