@@ -111,6 +111,7 @@ def buscar_tarea(tareas):
     if not encontrada:
         print("No se han encontrado tareas")
 
+
 def mostrar_tareas_pendientes(tareas):
     encontrada = False
 
@@ -123,6 +124,18 @@ def mostrar_tareas_pendientes(tareas):
         print("No hay tareas pendientes")
 
 
+def mostrar_tareas_completadas(tareas):
+    encontrada = False
+
+    for tarea in tareas:
+        if tarea.get("completada") == True:
+            print(tarea.get("descripcion"), "[Completada]")
+            encontrada = True
+
+    if not encontrada:
+        print("No hay tareas completadas")
+
+
 def mostrar_menu():
     print(""" ==== GESTOR DE TAREAS ====
 1. Añadir tarea
@@ -130,7 +143,8 @@ def mostrar_menu():
 3. Marcar tarea como completada
 4. Eliminar tarea
 5. Buscar tarea
-6. Mostrar tareas pendientes          
+6. Mostrar tareas pendientes
+7. Mostrar tareas completadas          
 0. Salir
  """)
 
@@ -160,6 +174,9 @@ while True:
 
     elif opcion == "6":
         mostrar_tareas_pendientes(tareas)
+
+    elif opcion == "7":
+        mostrar_tareas_completadas(tareas)
 
     elif opcion == "0":
         guardar_tareas(tareas)
