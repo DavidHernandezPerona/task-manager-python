@@ -1,3 +1,3 @@
-Aprender python|True
-Subir proyecto a GitHub|True
+Subir proyecto a GitHub|False
 Encontrar trabajo de programador junior|False
+Seguir aprendiendo Python|False
