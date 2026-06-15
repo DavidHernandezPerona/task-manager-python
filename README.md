@@ -1,6 +1,10 @@
-Gestor de Tareas en Python
+#Gestor de Tareas en Python
 
-Proyecto realizado para practicar:
+##Demo online
+
+https://david-task-manager.streamlit.app/
+
+##Proyecto realizado para practicar:
 
 - Funciones
 - Listas
@@ -9,7 +13,7 @@ Proyecto realizado para practicar:
 - Validación de datos
 - Git y GitHub
 
-Funciones disponibles:
+##Funciones disponibles:
 - Añadir tareas
 - Ver tareas
 - Marcar tareas completadas
